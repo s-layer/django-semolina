@@ -20,12 +20,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
         with:
           fetch-depth: 0
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v7.6.0
         with:
           enable-cache: true
 
@@ -36,7 +36,7 @@ jobs:
         run: uv build
 
       - name: Upload distributions
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: dist
           path: dist/
@@ -53,12 +53,12 @@ jobs:
         python-version: ["3.11", "3.14"]
     steps:
       - name: Set up uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v7.6.0
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Download distributions
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: dist
           path: dist/
@@ -86,12 +86,12 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
         with:
           fetch-depth: 0
 
       - name: Generate changelog
-        uses: orhun/git-cliff-action@v4
+        uses: orhun/git-cliff-action@v4.9.1
         with:
           args: --latest
         env:
@@ -99,7 +99,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload changelog
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: changelog
           path: CHANGELOG.md
@@ -117,7 +117,7 @@ jobs:
       contents: read
     steps:
       - name: Download distributions
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: dist
           path: dist/
@@ -134,18 +134,18 @@ jobs:
       contents: write
     steps:
       - name: Download distributions
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: dist
           path: dist/
 
       - name: Download changelog
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.3.0
         with:
           name: changelog
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.6.2
         with:
           body_path: CHANGELOG.md
           files: dist/*
