@@ -44,11 +44,11 @@ databricks = ["semolina[databricks]"]
 duckdb = ["semolina[duckdb]"]
 
 [project.urls]
-Homepage = "https://github.com/anentropic/django-semolina"
-Documentation = "https://anentropic.github.io/django-semolina/"
-Repository = "https://github.com/anentropic/django-semolina"
-Issues = "https://github.com/anentropic/django-semolina/issues"
-Changelog = "https://anentropic.github.io/django-semolina/changelog/"
+Homepage = "https://github.com/s-layer/django-semolina"
+Documentation = "https://s-layer.github.io/django-semolina/"
+Repository = "https://github.com/s-layer/django-semolina"
+Issues = "https://github.com/s-layer/django-semolina/issues"
+Changelog = "https://s-layer.github.io/django-semolina/changelog/"
 
 [build-system]
 requires = ["uv_build>=0.9.18,<1.0.0"]
