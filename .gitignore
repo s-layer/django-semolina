@@ -207,5 +207,8 @@ cython_debug/
 .claude/*
 !.claude/hooks/
 !.claude/settings.json
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/verify/
 .opencode/
 .agents/
